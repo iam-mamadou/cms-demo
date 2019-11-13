@@ -1,0 +1,56 @@
+plugins {
+    id 'java'
+    id 'idea'
+}
+
+group 'com.mamadou'
+version '1.0-SNAPSHOT'
+
+sourceCompatibility = 11
+
+def bouncyCastleVersion = "1.64"
+def vavrVersion = "0.9.3"
+def slf4jVersion = "1.7.28"
+def junit5Version = "5.5.1"
+def assertJVersion = "3.9.1"
+def mockitoVersion = "2.21.0"
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+}
+
+dependencies {
+    // Bouncy Castle
+    implementation "org.bouncycastle:bcpkix-jdk15on:$bouncyCastleVersion"
+    // Vavr
+    implementation "io.vavr:vavr:${vavrVersion}"
+    // Logging
+    implementation "org.slf4j:slf4j-api:${slf4jVersion}"
+
+    // JUnit 5
+    testImplementation "org.junit.jupiter:junit-jupiter-api:$junit5Version"
+    testImplementation "org.junit.jupiter:junit-jupiter-engine:$junit5Version"
+
+    // Assert J - fluent assertion
+    testImplementation "org.assertj:assertj-core:$assertJVersion"
+
+    // Mockito - mocking/stubbing
+    testImplementation "org.mockito:mockito-core:$mockitoVersion"
+    testImplementation "org.mockito:mockito-junit-jupiter:$mockitoVersion"
+}
+
+test {
+    useJUnitPlatform {}
+}
+
+
+compileJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
+
+compileTestJava {
+    options.encoding = 'UTF-8'
+    options.compilerArgs << "-Xlint:unchecked" << "-Xlint:deprecation"
+}
