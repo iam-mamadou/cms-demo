@@ -27,5 +27,5 @@ and verify signature using Root CA Certificate.
   you can also navigate to src/test/java/com/mamadou/CMSServiceTest.java and run that class.  
   This class has the following test cases:  
     1. Sign Content Using Client Certificate AND Verify Using CA Certificate  
-    2 Sign AND Verify Content Using the Same Certificate(Self Signed Certificate)  
+    2. Sign AND Verify Content Using the Same Certificate(Self Signed Certificate)  
     3. Sign Content Using Certificate that is not signed by CA  
